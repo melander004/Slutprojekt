@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <SourceFile>c:/Programmering_1/Slutprojekt/Content/Duel of the Fates.mp3</SourceFile>
+  <SourceTime>2022-04-01T15:15:04.7891628+02:00</SourceTime>
+  <DestFile>c:/Programmering_1/Slutprojekt/Content/bin/Windows/Content/Duel of the Fates.xnb</DestFile>
+  <DestTime>2022-04-05T14:33:58.4866448+02:00</DestTime>
+  <Importer>Mp3Importer</Importer>
+  <ImporterTime>2020-08-10T18:17:54+02:00</ImporterTime>
+  <Processor>SongProcessor</Processor>
+  <ProcessorTime>2020-08-10T18:17:54+02:00</ProcessorTime>
+  <Parameters>
+    <Key>Quality</Key>
+    <Value>Best</Value>
+  </Parameters>
+  <Dependencies />
+  <BuildAsset />
+  <BuildOutput>
+    <string>c:/Programmering_1/Slutprojekt/Content/bin/Windows/Content/Duel of the Fates.wma</string>
+  </BuildOutput>
+</PipelineBuildEvent>
