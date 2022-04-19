@@ -1,4 +1,4 @@
-﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using MainMenu.States;
@@ -8,19 +8,20 @@ namespace MainMenu
     public class Game1 : Game
     {
         private GraphicsDeviceManager _graphics;
+
         private SpriteBatch _spriteBatch;
 
         private State _currentState;
         private State _nextState;
-
             public void ChangeState(State state)
             {
                 _nextState = state;
             }
-
         public Game1()
         {
             _graphics = new GraphicsDeviceManager(this);
+            _graphics.PreferredBackBufferWidth = Resolution.Width;
+            _graphics.PreferredBackBufferHeight = Resolution.Height;
             Content.RootDirectory = "Content";
             IsMouseVisible = true;
         }
