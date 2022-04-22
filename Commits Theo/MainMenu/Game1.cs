@@ -1,7 +1,6 @@
-﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
-using Microsoft.Xna.Framework.Media;
 using MainMenu.States;
 
 namespace MainMenu
@@ -14,24 +13,21 @@ namespace MainMenu
 
         private State _currentState;
         private State _nextState;
-        public void ChangeState(State state)
-        {
-            _nextState = state;
-        }
-
-        Song mainMenuMusic;
-
+            public void ChangeState(State state)
+            {
+                _nextState = state;
+            }
         public Game1()
         {
             _graphics = new GraphicsDeviceManager(this);
-            _graphics.PreferredBackBufferWidth = Resolution.Width;
-            _graphics.PreferredBackBufferHeight = Resolution.Height;
             Content.RootDirectory = "Content";
             IsMouseVisible = true;
         }
 
         protected override void Initialize()
         {
+            // TODO: Add your initialization logic here
+
             IsMouseVisible = true;
 
             base.Initialize();
@@ -41,23 +37,16 @@ namespace MainMenu
         {
             _spriteBatch = new SpriteBatch(GraphicsDevice);
 
+            // TODO: use this.Content to load your game content here
             _currentState = new MenuState(this, _graphics.GraphicsDevice, Content);
-
-            mainMenuMusic = this.Content.Load<Song>("Audio/Meny");
-            MediaPlayer.Play(mainMenuMusic);
-            MediaPlayer.MediaStateChanged += MediaPlayer_MediaStateChanged;
-        }
-
-        void MediaPlayer_MediaStateChanged(object sender, System.EventArgs e)
-        {
-            MediaPlayer.Volume -= -0.1f;  
-            MediaPlayer.Play(mainMenuMusic);
         }
 
         protected override void Update(GameTime gameTime)
         {
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
+
+            // TODO: Add your update logic here
 
             if(_nextState != null)
             {
@@ -70,11 +59,16 @@ namespace MainMenu
 
             _currentState.PostUpdate(gameTime);
 
+            _graphics.PreferredBackBufferWidth = Resolution.Width;
+            _graphics.PreferredBackBufferHeight = Resolution.Height;
+            _graphics.ApplyChanges();
+
             base.Update(gameTime);
         }
 
         protected override void Draw(GameTime gameTime)
         {
+            // TODO: Add your drawing code here
             GraphicsDevice.Clear(Color.SlateGray);
 
             _currentState.Draw(gameTime, _spriteBatch);
