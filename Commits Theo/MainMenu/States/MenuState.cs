@@ -13,7 +13,6 @@ namespace MainMenu.States
   public class MenuState : State 
   {
         private List<Component> _components;
-
         public MenuState(Game1 game, GraphicsDevice graphicsDevice, ContentManager content) 
         : base(game, graphicsDevice, content)
         {
@@ -36,19 +35,19 @@ namespace MainMenu.States
 
             settingsButton.Click += SettingsButton_Click;
 
-            var quitGameButton = new Button(buttonTexture, buttonFont)
+            var quitButton = new Button(buttonTexture, buttonFont)
             {
                 Position = new Vector2(((Resolution.Width/2)-80), (((Resolution.Height/2)-20)+50)),
-                Text = "Quit Game",
+                Text = "Quit",
             };
 
-            quitGameButton.Click += QuitGameButton_Click;
+            quitButton.Click += QuitButton_Click;
 
             _components = new List<Component>()
             {
                 levelsButton,
                 settingsButton,
-                quitGameButton,
+                quitButton,
             };
         }
 
@@ -64,7 +63,7 @@ namespace MainMenu.States
 
         private void SettingsButton_Click(object sender, EventArgs e)
         {
-            Console.WriteLine("Settings");
+            _game.ChangeState(new SettingState(_game, _graphicsDevice, _content));
         }
 
         private void LevelsButton_Click(object sender, EventArgs e)
@@ -83,7 +82,7 @@ namespace MainMenu.States
                 component.Update(gameTime);
         }
 
-        private void QuitGameButton_Click(object sender, EventArgs e)
+        private void QuitButton_Click(object sender, EventArgs e)
         {
             _game.Exit();
         }
