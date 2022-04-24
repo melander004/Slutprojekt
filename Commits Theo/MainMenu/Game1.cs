@@ -43,10 +43,8 @@ namespace MainMenu
 
         protected override void Update(GameTime gameTime)
         {
-            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
-                Exit();
-
-            // TODO: Add your update logic here
+            if(Keyboard.GetState().IsKeyDown(Keys.Escape))
+                ChangeState(new MenuState(this, _graphics.GraphicsDevice, Content));
 
             if(_nextState != null)
             {
