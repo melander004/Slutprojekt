@@ -24,7 +24,7 @@ namespace MainMenu.States
 
             var resolutionButton1 = new Button(buttonTexture, buttonFont)
             {
-                Position = new Vector2(ButtonPositions.buttonWidth, (((Resolution.Height/2-50)-20)-50)),
+                Position = new Vector2(((Resolution.Width/2)-80), (((Resolution.Height/2-50)-20)-50)),
                 Text = "1920x1080",
             };
             
@@ -46,11 +46,29 @@ namespace MainMenu.States
 
             resolutionButton3.Click += ResolutionButton3_Click;
 
+            var resolutionButton4 = new Button(buttonTexture, buttonFont)
+            {
+                Position = new Vector2(((Resolution.Width/2)-80), (((Resolution.Height/2+100)-20)-50)),
+                Text = "800x800",
+            };
+
+            resolutionButton4.Click += ResolutionButton4_Click;
+
+            var backButton = new Button(buttonTexture, buttonFont)
+            {
+                Position = new Vector2(Resolution.Width/20, Resolution.Height/1.1f),
+                Text = "Back",
+            };
+
+            backButton.Click += BackButton_Click;
+
             _components = new List<Component>()
             {
                 resolutionButton1,
                 resolutionButton2,
                 resolutionButton3,
+                resolutionButton4,
+                backButton,
             };
         }
         public override void Draw(GameTime gameTime, SpriteBatch spriteBatch)
@@ -67,18 +85,34 @@ namespace MainMenu.States
         {
             Resolution.Width = 1920;
             Resolution.Height = 1080;
+            _game.ChangeState(new SettingState(_game, _graphicsDevice, _content));
+            
         }
 
         private void ResolutionButton2_Click(object sender, EventArgs e)
         {
             Resolution.Width = 1600;
             Resolution.Height = 900;
+            _game.ChangeState(new SettingState(_game, _graphicsDevice, _content));
         }
 
         private void ResolutionButton3_Click(object sender, EventArgs e)
         {
             Resolution.Width = 1280;
             Resolution.Height = 720;
+            _game.ChangeState(new SettingState(_game, _graphicsDevice, _content));
+        }
+
+        private void ResolutionButton4_Click(object sender, EventArgs e)
+        {
+            Resolution.Width = 800;
+            Resolution.Height = 800;
+            _game.ChangeState(new SettingState(_game, _graphicsDevice, _content));
+        }
+
+        private void BackButton_Click(object sender, EventArgs e)
+        {
+            _game.ChangeState(new MenuState(_game, _graphicsDevice, _content));
         }
 
         public override void PostUpdate(GameTime gameTime)
