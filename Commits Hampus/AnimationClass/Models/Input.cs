@@ -16,5 +16,8 @@ namespace AnimationClass.Models
     public Keys Right { get; set; }
 
     public Keys Up { get; set; }
+
+   
+
   }
 }

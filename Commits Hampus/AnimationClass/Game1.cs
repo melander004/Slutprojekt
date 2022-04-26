@@ -51,16 +51,19 @@ namespace AnimationClass
       
       var animations = new Dictionary<string, Animation>()
       {
-        { "PalpatineLeft", new Animation(Content.Load<Texture2D>("Player/PalpatineB"), 10) },
-        { "PalpatineRight", new Animation(Content.Load<Texture2D>("Player/PalpatineF"), 10) },
+        { "PlayerF", new Animation(Content.Load<Texture2D>("Player/ObiwanWalk"), 12) },
+        { "PlayerB", new Animation(Content.Load<Texture2D>("Player/ObiwanRev"), 12) },
+        { "PlayerA", new Animation(Content.Load<Texture2D>("Player/ObiwanAtt"), 3) },
+        
       };
 
       _sprites = new List<Sprite>()
       {
         new Sprite(new Dictionary<string, Animation>()
         {
-          { "PalpatineLeft", new Animation(Content.Load<Texture2D>("Player/PalpatineB"), 10) },
-          { "PalpatineRight", new Animation(Content.Load<Texture2D>("Player/PalpatineF"), 10) },
+        { "PlayerF", new Animation(Content.Load<Texture2D>("Player/ObiwanWalk"), 12) },
+        { "PlayerB", new Animation(Content.Load<Texture2D>("Player/ObiwanRev"), 12) },
+        { "PlayerA", new Animation(Content.Load<Texture2D>("Player/ObiwanAtt"), 3) },
         })
         {
           Position = new Vector2(100,350),
@@ -70,6 +73,7 @@ namespace AnimationClass
             Down = Keys.S,
             Left = Keys.A,
             Right = Keys.D,
+            
           },
         },
        

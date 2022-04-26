@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\prog_shit\\Slutproj\\Commits Hampus\\AnimationClass\\AnimationClass.csproj": {}
+    "C:\\proig\\AnimationClass\\AnimationClass.csproj": {}
   },
   "projects": {
-    "C:\\prog_shit\\Slutproj\\Commits Hampus\\AnimationClass\\AnimationClass.csproj": {
+    "C:\\proig\\AnimationClass\\AnimationClass.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\prog_shit\\Slutproj\\Commits Hampus\\AnimationClass\\AnimationClass.csproj",
+        "projectUniqueName": "C:\\proig\\AnimationClass\\AnimationClass.csproj",
         "projectName": "AnimationClass",
-        "projectPath": "C:\\prog_shit\\Slutproj\\Commits Hampus\\AnimationClass\\AnimationClass.csproj",
+        "projectPath": "C:\\proig\\AnimationClass\\AnimationClass.csproj",
         "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-        "outputPath": "C:\\prog_shit\\Slutproj\\Commits Hampus\\AnimationClass\\obj\\",
+        "outputPath": "C:\\proig\\AnimationClass\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config"
