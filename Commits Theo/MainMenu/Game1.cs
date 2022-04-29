@@ -13,10 +13,12 @@ namespace MainMenu
 
         private State _currentState;
         private State _nextState;
-            public void ChangeState(State state)
-            {
-                _nextState = state;
-            }
+            
+        public void ChangeState(State state)
+        {
+            _nextState = state;
+        }
+        
         public Game1()
         {
             _graphics = new GraphicsDeviceManager(this);
