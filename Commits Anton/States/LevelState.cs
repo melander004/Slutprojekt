@@ -16,19 +16,28 @@ namespace Slutprojekt.States
     public LevelState(Game1 game, GraphicsDevice graphicsDevice, ContentManager content) 
       : base(game, graphicsDevice, content)
     {
+      tile = new Floor();
+      tile.Initialize(content);
+      
+      Bakgrund = _game.Content.Load<Texture2D>("Naboo_bakgrund");
+      BakgrundPos = new Vector2(0,0);
+      
     }
 
-    Floor tile;
     Texture2D Bakgrund;
-    Vector2 Bakgrundpos;
+    
+    Vector2 BakgrundPos;
 
-
-
+    Floor tile; 
 
     public override void Draw(GameTime gameTime, SpriteBatch spriteBatch)
     {
-      spriteBatch.Draw(Bakgrund, Bakgrundpos, Color.White);
+      spriteBatch.Begin();
+
+      spriteBatch.Draw(Bakgrund, BakgrundPos, null, Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0f);
       tile.Draw(spriteBatch);
+
+      spriteBatch.End();
     }
 
     public override void PostUpdate(GameTime gameTime)
