@@ -2,6 +2,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using MainMenu.States;
+using Microsoft.Xna.Framework.Media;
 
 namespace MainMenu
 {
@@ -12,7 +13,10 @@ namespace MainMenu
         private SpriteBatch _spriteBatch;
 
         private State _currentState;
+
         private State _nextState;
+
+        Song menuMusic;
             
         public void ChangeState(State state)
         {
@@ -24,6 +28,7 @@ namespace MainMenu
             _graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
             IsMouseVisible = true;
+            menuMusic = this.Content.Load<Song>("Audio/Menu");
         }
 
         protected override void Initialize()
@@ -62,6 +67,9 @@ namespace MainMenu
             _graphics.PreferredBackBufferWidth = Resolution.Width;
             _graphics.PreferredBackBufferHeight = Resolution.Height;
             _graphics.ApplyChanges();
+
+            MediaPlayer.Play(menuMusic);
+            MediaPlayer.Volume = MusicVolume.Volume;
 
             base.Update(gameTime);
         }
