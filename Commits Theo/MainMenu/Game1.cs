@@ -28,7 +28,6 @@ namespace MainMenu
             _graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
             IsMouseVisible = true;
-            menuMusic = this.Content.Load<Song>("Audio/Menu");
         }
 
         protected override void Initialize()
@@ -46,6 +45,7 @@ namespace MainMenu
 
             // TODO: use this.Content to load your game content here
             _currentState = new MenuState(this, _graphics.GraphicsDevice, Content);
+            menuMusic = this.Content.Load<Song>("Audio/Menu");
         }
 
         protected override void Update(GameTime gameTime)
