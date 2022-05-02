@@ -6,6 +6,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Content;
+using MainMenu;
 
 namespace MainMenu
 {
@@ -23,7 +24,7 @@ namespace MainMenu
         }
         public void Draw(SpriteBatch spriteBatch){
             for (int i = 0; i<Length; i++){
-                spriteBatch.Draw(texture, new Vector2((int)position.X + (i*texture.Width), (int)position.Y), Color.White);
+                spriteBatch.Draw(texture, new Vector2((int)position.X + (i*texture.Width), (int)position.Y), null, Color.White, 0f, Vector2.Zero, Resolution.Scale, SpriteEffects.None, 0f);
             }
         }
     }
