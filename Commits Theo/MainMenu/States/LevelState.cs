@@ -11,29 +11,48 @@ namespace MainMenu.States
 {
   public class LevelState : State
   {
+    Texture2D Bakgrund1;
+
+    Texture2D Bakgrund2;
+    
+    Vector2 BakgrundPos;
+
+    Floor tile; 
+    
     public LevelState(Game1 game, GraphicsDevice graphicsDevice, ContentManager content) 
       : base(game, graphicsDevice, content)
     {
       tile = new Floor();
       tile.Initialize(content);
       
-      Bakgrund = _game.Content.Load<Texture2D>("Textures/Naboo_bakgrund");
+      Bakgrund1 = _game.Content.Load<Texture2D>("Textures/Naboo_Bakgrund");
+      Bakgrund2 = _game.Content.Load<Texture2D>("Textures/Naboo_Bakgrund(16 9)");
       BakgrundPos = new Vector2(0,0);
-      
     }
-
-    Texture2D Bakgrund;
-    
-    Vector2 BakgrundPos;
-
-    Floor tile; 
 
     public override void Draw(GameTime gameTime, SpriteBatch spriteBatch)
     {
       spriteBatch.Begin();
 
-      spriteBatch.Draw(Bakgrund, BakgrundPos, null, Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0f);
+      if(Resolution.Width == 800){
+      spriteBatch.Draw(Bakgrund1, BakgrundPos, Color.White);
       tile.Draw(spriteBatch);
+      }      
+
+      if(Resolution.Width == 1280){
+      spriteBatch.Draw(Bakgrund2, BakgrundPos, null, Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0f);
+      tile.Draw(spriteBatch);
+      }
+
+      if(Resolution.Width == 1600){
+      spriteBatch.Draw(Bakgrund2, BakgrundPos, null, Color.White, 0f, Vector2.Zero, 1.25f, SpriteEffects.None, 0f);
+      tile.Draw(spriteBatch);
+      }
+
+      if(Resolution.Width == 1920){
+      spriteBatch.Draw(Bakgrund2, BakgrundPos, null, Color.White, 0f, Vector2.Zero, 1.5f, SpriteEffects.None, 0f);
+      tile.Draw(spriteBatch);
+      } 
 
       spriteBatch.End();
     }
