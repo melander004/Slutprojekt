@@ -1,4 +1,4 @@
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Slutprojekt.States;
@@ -67,7 +67,7 @@ namespace Slutprojekt
             _graphics.ApplyChanges();
 
             MediaPlayer.Play(Naboo_music);
-            MediaPlayer.Volume = MusicVolume.Volume;
+            MediaPlayer.Volume = Music.Volume;
 
             base.Update(gameTime);
         }
