@@ -123,7 +123,7 @@ namespace Slutprojekt.States
 
         private void vlm_Click(object sender, EventArgs e)
         {
-           MusicVolume.Volume = 0.5f; 
+           Music.Volume = 0.5f; 
         }
 
         private void BackButton_Click(object sender, EventArgs e)
