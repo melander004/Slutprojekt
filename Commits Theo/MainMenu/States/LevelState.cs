@@ -73,17 +73,17 @@ namespace MainMenu.States
 
         private void NabooButton_Click(object sender, EventArgs e)
         {
-          _game.ChangeState(new NabooState(_game, _graphicsDevice, _content));
+            _game.ChangeState(new NabooState(_game, _graphicsDevice, _content));
         }
 
         private void MustafarButton_Click(object sender, EventArgs e)
         {
-          _game.ChangeState(new MustafarState(_game, _graphicsDevice, _content));
+            _game.ChangeState(new MustafarState(_game, _graphicsDevice, _content));
         }
 
         private void CoruscantButton_Click(object sender, EventArgs e)
         {
-          _game.ChangeState(new CoruscantState(_game, _graphicsDevice, _content));
+            _game.ChangeState(new CoruscantState(_game, _graphicsDevice, _content));
         }
         private void BackButton_Click(object sender, EventArgs e)
         {
