@@ -1,8 +1,7 @@
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using MainMenu.States;
-using Microsoft.Xna.Framework.Media;
 
 namespace MainMenu
 {
@@ -13,14 +12,12 @@ namespace MainMenu
         private SpriteBatch _spriteBatch;
 
         private State _currentState;
-
+        
         private State _nextState;
-
-        Song menuMusic;
-            
+        
         public void ChangeState(State state)
         {
-            _nextState = state;
+            _nextState = state;            
         }
         
         public Game1()
@@ -45,7 +42,6 @@ namespace MainMenu
 
             // TODO: use this.Content to load your game content here
             _currentState = new MenuState(this, _graphics.GraphicsDevice, Content);
-            menuMusic = this.Content.Load<Song>("Audio/Menu");
         }
 
         protected override void Update(GameTime gameTime)
@@ -67,9 +63,6 @@ namespace MainMenu
             _graphics.PreferredBackBufferWidth = Resolution.Width;
             _graphics.PreferredBackBufferHeight = Resolution.Height;
             _graphics.ApplyChanges();
-
-            MediaPlayer.Play(menuMusic);
-            MediaPlayer.Volume = MusicVolume.Volume;
 
             base.Update(gameTime);
         }
