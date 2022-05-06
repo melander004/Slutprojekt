@@ -68,7 +68,7 @@ namespace MainMenu.States
 
         private void LevelsButton_Click(object sender, EventArgs e)
         {
-            _game.ChangeState(new GameState(_game, _graphicsDevice, _content));
+            _game.ChangeState(new LevelState(_game, _graphicsDevice, _content));
         }
 
         public override void PostUpdate(GameTime gameTime)
