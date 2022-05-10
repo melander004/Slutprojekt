@@ -22,7 +22,7 @@ namespace Slutprojekt.States
 
     Vector2 position;
 
-    int Length = 16;
+    int Length = 100;
     
     public CoruscantState(Game1 game, GraphicsDevice graphicsDevice, ContentManager content) 
       : base(game, graphicsDevice, content)

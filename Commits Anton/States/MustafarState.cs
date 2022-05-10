@@ -22,13 +22,13 @@ namespace Slutprojekt.States
 
     Vector2 position;
 
-    int Length = 16;
+    int Length = 100;
     
     public MustafarState(Game1 game, GraphicsDevice graphicsDevice, ContentManager content) 
       : base(game, graphicsDevice, content)
     {
       Bakgrund_Mustafar = _game.Content.Load<Texture2D>("Mustafar_Bakgrund");
-      //Bakgrund_Mustafar2 = _game.Content.Load<Texture2D>("Mustafar_Bakgrund(16 9)");
+      Bakgrund_Mustafar2 = _game.Content.Load<Texture2D>("Mustafar_Bakgrund(16 9)");
       BakgrundPos = new Vector2(0,0);
       texture_Mustafar = _game.Content.Load<Texture2D>("Mustafar_Floor");
       position = new Vector2(0, Resolution.Height-50);
