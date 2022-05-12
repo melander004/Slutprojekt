@@ -6,35 +6,30 @@ using System.Threading.Tasks;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
 using MainMenu.Controls;
+using MainMenu;
 
 namespace MainMenu.States
+
 {
-  public class SettingState : State 
-  {
+    public class AudioSettingState : State
+    {
         private List<Component> _components;
 
-        public SettingState(Game1 game, GraphicsDevice graphicsDevice, ContentManager content) 
+        public AudioSettingState(Game1 game, GraphicsDevice graphicsDevice, ContentManager content) 
         : base(game, graphicsDevice, content)
         {
             var buttonTexture = _content.Load<Texture2D>("Controls/Button");
             var buttonFont = _content.Load<SpriteFont>("Fonts/Font");
 
-            var videoButton = new Button(buttonTexture, buttonFont)
+            var resolutionButton1 = new Button(buttonTexture, buttonFont)
             {
-                Position = new Vector2(((Resolution.Width/2)-80-160), ((Resolution.Height/2)-20)),
-                Text = "Video Settings",
+                Position = new Vector2(((Resolution.Width/2)-80), (((Resolution.Height/2-50)-20)-50)),
+                Text = "1920x1080",
             };
-
-            videoButton.Click += VideoButton_Click;
-
-            var audioButton = new Button(buttonTexture, buttonFont)
-            {
-                Position = new Vector2(((Resolution.Width/2)-80+160), ((Resolution.Height/2)-20)),
-                Text = "Audio Settings",
-            };
-
-            audioButton.Click += AudioButton_Click;
+            
+            resolutionButton1.Click += ResolutionButton1_Click;
 
             var backButton = new Button(buttonTexture, buttonFont)
             {
@@ -46,12 +41,10 @@ namespace MainMenu.States
 
             _components = new List<Component>()
             {
-                videoButton,
-                audioButton,
+                resolutionButton1,
                 backButton,
             };
         }
-
         public override void Draw(GameTime gameTime, SpriteBatch spriteBatch)
         {
             spriteBatch.Begin();
@@ -62,27 +55,20 @@ namespace MainMenu.States
             spriteBatch.End();
         }
 
-        private void VideoButton_Click(object sender, EventArgs e)
+        private void ResolutionButton1_Click(object sender, EventArgs e)
         {
-            _game.ChangeState(new VideoSettingState(_game, _graphicsDevice, _content));
-        }
-
-        private void AudioButton_Click(object sender, EventArgs e)
-        {
-            _game.ChangeState(new AudioSettingState(_game, _graphicsDevice, _content));
+            
         }
 
         private void BackButton_Click(object sender, EventArgs e)
         {
-            _game.ChangeState(new MenuState(_game, _graphicsDevice, _content));
+            _game.ChangeState(new SettingState(_game, _graphicsDevice, _content));
         }
-
 
         public override void PostUpdate(GameTime gameTime)
         {
-            // remove sprites if they're not needed
+           
         }
-
         public override void Update(GameTime gameTime)
         {
             foreach (var component in _components)

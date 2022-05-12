@@ -13,6 +13,7 @@ namespace MainMenu.States
   public class MenuState : State 
   {
         private List<Component> _components;
+
         public MenuState(Game1 game, GraphicsDevice graphicsDevice, ContentManager content) 
         : base(game, graphicsDevice, content)
         {
