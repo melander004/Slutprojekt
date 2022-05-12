@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Media;
 using Slutprojekt;
 
 namespace Slutprojekt.States
@@ -22,16 +23,20 @@ namespace Slutprojekt.States
 
     Vector2 position;
 
+    Song DOF;
+
     int Length = 100;
     
     public NabooState(Game1 game, GraphicsDevice graphicsDevice, ContentManager content) 
       : base(game, graphicsDevice, content)
     {
-      Bakgrund_Naboo = _game.Content.Load<Texture2D>("Naboo_Bakgrund2");
-      Bakgrund_Naboo2 = _game.Content.Load<Texture2D>("Naboo_Bakgrund(16 9)");
+      Bakgrund_Naboo = _game.Content.Load<Texture2D>("Textures/Naboo_Bakgrund2");
+      Bakgrund_Naboo2 = _game.Content.Load<Texture2D>("Textures/Naboo_Bakgrund(16 9)");
       BakgrundPos = new Vector2(0,0);
-      texture_Naboo = _game.Content.Load<Texture2D>("Naboo_hangar2 (1)");
+      texture_Naboo = _game.Content.Load<Texture2D>("Textures/Naboo_hangar");
       position = new Vector2(0, Resolution.Height-50);
+      DOF = _game.Content.Load<Song>("Audio/Naboo");
+      MediaPlayer.Play(DOF);
     }
 
     

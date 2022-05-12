@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Media;
 using Slutprojekt.Controls;
 
 namespace Slutprojekt.States
@@ -15,6 +16,7 @@ namespace Slutprojekt.States
   public class MenuState : State 
   {
         private List<Component> _components;
+        Song THEME;
         public MenuState(Game1 game, GraphicsDevice graphicsDevice, ContentManager content) 
         : base(game, graphicsDevice, content)
         {
@@ -51,6 +53,10 @@ namespace Slutprojekt.States
                 settingsButton,
                 quitButton,
             };
+
+            THEME = _game.Content.Load<Song>("Audio/Meny");
+            MediaPlayer.Play(THEME);
+
         }
 
         public override void Draw(GameTime gameTime, SpriteBatch spriteBatch)

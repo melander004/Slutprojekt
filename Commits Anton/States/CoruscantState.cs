@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Media;
 using Slutprojekt;
 
 namespace Slutprojekt.States
@@ -22,16 +23,20 @@ namespace Slutprojekt.States
 
     Vector2 position;
 
+    Song AOvD;
+
     int Length = 100;
     
     public CoruscantState(Game1 game, GraphicsDevice graphicsDevice, ContentManager content) 
       : base(game, graphicsDevice, content)
     {
-      Bakgrund_Coruscant = _game.Content.Load<Texture2D>("Coruscant_Bakgrund");
-      Bakgrund_Coruscant2 = _game.Content.Load<Texture2D>("Coruscant_Bakgrund(16 9)");
+      Bakgrund_Coruscant = _game.Content.Load<Texture2D>("Textures/Coruscant_Bakgrund");
+      Bakgrund_Coruscant2 = _game.Content.Load<Texture2D>("Textures/Coruscant_Bakgrund(16 9)");
       BakgrundPos = new Vector2(0,0);
-      texture_Coruscant = _game.Content.Load<Texture2D>("Coruscant_Floor");
+      texture_Coruscant = _game.Content.Load<Texture2D>("Textures/Coruscant_Floor");
       position = new Vector2(0, Resolution.Height-50);
+      AOvD = _game.Content.Load<Song>("Audio/Coruscant(Dooku)");
+      MediaPlayer.Play(AOvD);
     }
 
     

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Media;
 using Slutprojekt;
 
 namespace Slutprojekt.States
@@ -22,16 +23,19 @@ namespace Slutprojekt.States
 
     Vector2 position;
 
+    Song AvO;
     int Length = 100;
     
     public MustafarState(Game1 game, GraphicsDevice graphicsDevice, ContentManager content) 
       : base(game, graphicsDevice, content)
     {
-      Bakgrund_Mustafar = _game.Content.Load<Texture2D>("Mustafar_Bakgrund");
-      Bakgrund_Mustafar2 = _game.Content.Load<Texture2D>("Mustafar_Bakgrund(16 9)");
+      Bakgrund_Mustafar = _game.Content.Load<Texture2D>("Textures/Mustafar_Bakgrund");
+      Bakgrund_Mustafar2 = _game.Content.Load<Texture2D>("Textures/Mustafar_Bakgrund(16 9)");
       BakgrundPos = new Vector2(0,0);
-      texture_Mustafar = _game.Content.Load<Texture2D>("Mustafar_Floor");
+      texture_Mustafar = _game.Content.Load<Texture2D>("Textures/Mustafar_Floor");
       position = new Vector2(0, Resolution.Height-50);
+      AvO = _game.Content.Load<Song>("Audio/Mustafar");
+      MediaPlayer.Play(AvO);
     }
 
     
