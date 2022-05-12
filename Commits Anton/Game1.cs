@@ -41,7 +41,6 @@ namespace Slutprojekt
         protected override void LoadContent()
         {
             _spriteBatch = new SpriteBatch(GraphicsDevice);
-            Naboo_music = this.Content.Load<Song>("Naboo");
             // TODO: use this.Content to load your game content here
             _currentState = new MenuState(this, _graphics.GraphicsDevice, Content);
         }
@@ -65,8 +64,7 @@ namespace Slutprojekt
             _graphics.PreferredBackBufferWidth = Resolution.Width;
             _graphics.PreferredBackBufferHeight = Resolution.Height;
             _graphics.ApplyChanges();
-
-            MediaPlayer.Play(Naboo_music);
+            
             MediaPlayer.Volume = Music.Volume;
 
             base.Update(gameTime);
