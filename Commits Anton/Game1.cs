@@ -19,8 +19,6 @@ namespace Slutprojekt
         {
             _nextState = state;
         }
-
-        Song Naboo_music;
         
         public Game1()
         {
@@ -31,8 +29,6 @@ namespace Slutprojekt
 
         protected override void Initialize()
         {
-            // TODO: Add your initialization logic here
-
             IsMouseVisible = true;
 
             base.Initialize();
@@ -41,7 +37,6 @@ namespace Slutprojekt
         protected override void LoadContent()
         {
             _spriteBatch = new SpriteBatch(GraphicsDevice);
-            // TODO: use this.Content to load your game content here
             _currentState = new MenuState(this, _graphics.GraphicsDevice, Content);
         }
 
@@ -64,7 +59,7 @@ namespace Slutprojekt
             _graphics.PreferredBackBufferWidth = Resolution.Width;
             _graphics.PreferredBackBufferHeight = Resolution.Height;
             _graphics.ApplyChanges();
-            
+
             MediaPlayer.Volume = Music.Volume;
 
             base.Update(gameTime);
@@ -72,7 +67,6 @@ namespace Slutprojekt
 
         protected override void Draw(GameTime gameTime)
         {
-            // TODO: Add your drawing code here
             GraphicsDevice.Clear(Color.SlateGray);
 
             _currentState.Draw(gameTime, _spriteBatch);
