@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Media;
 
 namespace MainMenu.States
 {
@@ -20,6 +21,8 @@ namespace MainMenu.States
     Vector2 backgroundPos;
 
     Vector2 nabooFloorPos;
+
+    Song DOF;
   
     public NabooState(Game1 game, GraphicsDevice graphicsDevice, ContentManager content) 
       : base(game, graphicsDevice, content)
@@ -30,6 +33,9 @@ namespace MainMenu.States
 
       nabooFloor = _game.Content.Load<Texture2D>("Textures/Naboo_Hangar");
       nabooFloorPos = new Vector2(0, Resolution.Height-50);
+
+      DOF = _game.Content.Load<Song>("Audio/Naboo");
+      MediaPlayer.Play(DOF);
     }
 
     public override void Draw(GameTime gameTime, SpriteBatch spriteBatch)

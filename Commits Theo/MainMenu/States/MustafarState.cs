@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Media;
 
 namespace MainMenu.States
 {
@@ -20,6 +21,8 @@ namespace MainMenu.States
     Vector2 backgroundPos;
 
     Vector2 mustafarFloorPos;
+
+    Song AvO;
     
     public MustafarState(Game1 game, GraphicsDevice graphicsDevice, ContentManager content) 
       : base(game, graphicsDevice, content)
@@ -30,6 +33,9 @@ namespace MainMenu.States
 
       mustafarFloor = _game.Content.Load<Texture2D>("Textures/Mustafar_Floor");
       mustafarFloorPos = new Vector2(0, Resolution.Height/3.5f);
+
+      AvO = _game.Content.Load<Song>("Audio/Naboo");
+      MediaPlayer.Play(AvO);
     }
 
     public override void Draw(GameTime gameTime, SpriteBatch spriteBatch)
