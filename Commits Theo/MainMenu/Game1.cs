@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using Microsoft.Xna.Framework.Media;
 using MainMenu.States;
 
 namespace MainMenu
@@ -63,6 +64,8 @@ namespace MainMenu
             _graphics.PreferredBackBufferWidth = Resolution.Width;
             _graphics.PreferredBackBufferHeight = Resolution.Height;
             _graphics.ApplyChanges();
+
+            MediaPlayer.Volume = Music.Volume;
 
             base.Update(gameTime);
         }
