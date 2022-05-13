@@ -40,9 +40,6 @@ namespace Slutprojekt.States
             volumeButton75.Click += VolumeButton75_Click;
 
 
-
-
-
              var volumeButton50 = new Button(buttonTexture, buttonFont)
             {
                 Position = new Vector2(((Resolution.Width/2)-80), (((Resolution.Height/2-50)-20)-100)),
@@ -79,6 +76,7 @@ namespace Slutprojekt.States
 
             backButton.Click += BackButton_Click;
 
+            
             _components = new List<Component>()
             {
                 volumeButton100,
@@ -99,6 +97,9 @@ namespace Slutprojekt.States
             spriteBatch.End();
         }
 
+        /// <summary>
+        /// When you press the button named "volumeButton100", with the text "100%", the volume changes to 100%.
+        ///</summary>
         private void VolumeButton100_Click(object sender, EventArgs e)
         {
             Music.Volume = 1f;

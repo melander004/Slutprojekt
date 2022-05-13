@@ -30,7 +30,7 @@ namespace Slutprojekt.States
     public NabooState(Game1 game, GraphicsDevice graphicsDevice, ContentManager content) 
       : base(game, graphicsDevice, content)
     {
-      Bakgrund_Naboo = _game.Content.Load<Texture2D>("Textures/Naboo_Bakgrund2");
+      Bakgrund_Naboo = _game.Content.Load<Texture2D>("Textures/Naboo_Bakgrund");
       Bakgrund_Naboo2 = _game.Content.Load<Texture2D>("Textures/Naboo_Bakgrund(16 9)");
       BakgrundPos = new Vector2(0,0);
       texture_Naboo = _game.Content.Load<Texture2D>("Textures/Naboo_hangar");
