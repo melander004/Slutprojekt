@@ -1,8 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
@@ -43,7 +40,7 @@ namespace MainMenu.States
             };
 
             backButton.Click += BackButton_Click;
-
+            
             _components = new List<Component>()
             {
                 videoButton,
@@ -62,21 +59,29 @@ namespace MainMenu.States
             spriteBatch.End();
         }
 
+        ///<summary>
+        /// If videoButton is pressed the state changes to the videoSettingState.
+        ///</summary>
         private void VideoButton_Click(object sender, EventArgs e)
         {
             _game.ChangeState(new VideoSettingState(_game, _graphicsDevice, _content));
         }
 
+        ///<summary>
+        /// If audioButton is pressed the state changes to the AudioSettingState.
+        ///</summary>
         private void AudioButton_Click(object sender, EventArgs e)
         {
             _game.ChangeState(new AudioSettingState(_game, _graphicsDevice, _content));
         }
 
+        ///<summary>
+        /// When backButton is pressed the state changes to the previous state (in this case the MenuState).
+        ///</summary>
         private void BackButton_Click(object sender, EventArgs e)
         {
             _game.ChangeState(new MenuState(_game, _graphicsDevice, _content));
         }
-
 
         public override void PostUpdate(GameTime gameTime)
         {

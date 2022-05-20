@@ -25,7 +25,7 @@ namespace MainMenu.States
 
             var volumeButton100 = new Button(buttonTexture, buttonFont)
             {
-                Position = new Vector2(((Resolution.Width/2)-80), (((Resolution.Height/2-50)-20)-200)),
+                Position = new Vector2(((Resolution.Width/2)-80), ((Resolution.Height/2)-120)),
                 Text = "100%",
             };
             
@@ -33,19 +33,16 @@ namespace MainMenu.States
 
             var volumeButton75 = new Button(buttonTexture, buttonFont)
             {
-                Position = new Vector2(((Resolution.Width/2)-80), (((Resolution.Height/2-50)-20)-150)),
+                Position = new Vector2(((Resolution.Width/2)-80), ((Resolution.Height/2)-70)),
                 Text = "75%",
             };
             
             volumeButton75.Click += VolumeButton75_Click;
 
 
-
-
-
              var volumeButton50 = new Button(buttonTexture, buttonFont)
             {
-                Position = new Vector2(((Resolution.Width/2)-80), (((Resolution.Height/2-50)-20)-100)),
+                Position = new Vector2(((Resolution.Width/2)-80), (((Resolution.Height/2)-20))),
                 Text = "50%",
             };
             
@@ -54,7 +51,7 @@ namespace MainMenu.States
 
              var volumeButton25 = new Button(buttonTexture, buttonFont)
             {
-                Position = new Vector2(((Resolution.Width/2)-80), (((Resolution.Height/2-50)-20)-50)),
+                Position = new Vector2(((Resolution.Width/2)-80), ((Resolution.Height/2)+30)),
                 Text = "25%",
             };
             
@@ -63,7 +60,7 @@ namespace MainMenu.States
 
              var volumeButton0 = new Button(buttonTexture, buttonFont)
             {
-                Position = new Vector2(((Resolution.Width/2)-80), (((Resolution.Height/2-50)-20)+0)),
+                Position = new Vector2(((Resolution.Width/2)-80), ((Resolution.Height/2)+80)),
                 Text = "off",
             };
             
@@ -79,6 +76,7 @@ namespace MainMenu.States
 
             backButton.Click += BackButton_Click;
 
+            
             _components = new List<Component>()
             {
                 volumeButton100,
@@ -99,6 +97,9 @@ namespace MainMenu.States
             spriteBatch.End();
         }
 
+        /// <summary>
+        /// When you press the button named "volumeButton100" (with the text "100%" ingame) the volume changes to 100%.
+        ///</summary>
         private void VolumeButton100_Click(object sender, EventArgs e)
         {
             Music.Volume = 1f;
