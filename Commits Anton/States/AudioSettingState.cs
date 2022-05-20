@@ -98,7 +98,7 @@ namespace Slutprojekt.States
         }
 
         /// <summary>
-        /// When you press the button named "volumeButton100", with the text "100%", the volume changes to 100%.
+        /// When you press the button named "volumeButton100" (with the text "100%" ingame) the volume changes to 100%.
         ///</summary>
         private void VolumeButton100_Click(object sender, EventArgs e)
         {

@@ -45,35 +45,30 @@ namespace Slutprojekt.States
     {
       spriteBatch.Begin();
 
+      //Draws the 800x800 px version of the Naboo background.
       if(Resolution.Width == 800){
         spriteBatch.Draw(Bakgrund_Naboo, BakgrundPos, Color.White);
-        for(int i = 0; i<Length;i++){
-          spriteBatch.Draw(texture_Naboo, new Vector2((int)position.X + (i*texture_Naboo.Width), (int)position.Y), Color.White);
-        }
+        
       }      
-
+      //Draws the 16:9 version of the Naboo background. 
       if(Resolution.Width == 1280){
         spriteBatch.Draw(Bakgrund_Naboo2, BakgrundPos, null, Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0f);
-        for(int i = 0; i<Length;i++){
-          spriteBatch.Draw(texture_Naboo, new Vector2((int)position.X + (i*texture_Naboo.Width), (int)position.Y), Color.White);
-        }
+        
       }
-
+      
+      //Draws the 16:9 version of the Naboo background and scales it to the right resolution. 
       if(Resolution.Width == 1600){
         spriteBatch.Draw(Bakgrund_Naboo2, BakgrundPos, null, Color.White, 0f, Vector2.Zero, 1.25f, SpriteEffects.None, 0f);
-        for(int i = 0; i<Length;i++){
-          spriteBatch.Draw(texture_Naboo, new Vector2((int)position.X + (i*texture_Naboo.Width), (int)position.Y), Color.White);
-        }
       }
 
       if(Resolution.Width == 1920){
         spriteBatch.Draw(Bakgrund_Naboo2, BakgrundPos, null, Color.White, 0f, Vector2.Zero, 1.5f, SpriteEffects.None, 0f);
-        for(int i = 0; i<Length;i++){
-          spriteBatch.Draw(texture_Naboo, new Vector2((int)position.X + (i*texture_Naboo.Width), (int)position.Y), Color.White);
-        }      
+           
       } 
-
-      
+      //Draws the Naboo floor
+      for(int i = 0; i<Length;i++){
+        spriteBatch.Draw(texture_Naboo, new Vector2((int)position.X + (i*texture_Naboo.Width), (int)position.Y), Color.White);
+      }
 
       spriteBatch.End();
     }
