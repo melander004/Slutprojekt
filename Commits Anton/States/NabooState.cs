@@ -65,7 +65,7 @@ namespace Slutprojekt.States
         spriteBatch.Draw(Bakgrund_Naboo2, BakgrundPos, null, Color.White, 0f, Vector2.Zero, 1.5f, SpriteEffects.None, 0f);
            
       } 
-      //Draws the Naboo floor
+      //Draws the Naboo floor texture, "i<100" means that the texture is loaded 99 times because of the different resolutions the player could choose.
       for(int i = 0; i<Length;i++){
         spriteBatch.Draw(texture_Naboo, new Vector2((int)position.X + (i*texture_Naboo.Width), (int)position.Y), Color.White);
       }
