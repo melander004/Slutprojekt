@@ -1,5 +1,4 @@
-# Slutprojekt
+# Hello There!
 
-## Hello There!
 
-## General Kenobi!
+# General Kenobi!
