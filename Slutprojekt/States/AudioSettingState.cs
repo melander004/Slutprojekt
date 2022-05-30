@@ -67,7 +67,6 @@ namespace Slutprojekt.States
             volumeButton0.Click += VolumeButton0_Click;
 
 
-
             var backButton = new Button(buttonTexture, buttonFont)
             {
                 Position = new Vector2(Resolution.Width/20, Resolution.Height/1.1f),
@@ -99,7 +98,7 @@ namespace Slutprojekt.States
 
         /// <summary>
         /// When you press the button named "volumeButton100" (with the text "100%" ingame) the volume changes to 100%.
-        ///</summary>
+        /// </summary>
         private void VolumeButton100_Click(object sender, EventArgs e)
         {
             Music.Volume = 1f;

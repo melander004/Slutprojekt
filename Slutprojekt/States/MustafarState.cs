@@ -1,12 +1,11 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Media;
+using Microsoft.Xna.Framework.Input;
+using System.Collections.Generic;
+using Slutprojekt.Models;
+using Slutprojekt.Sprites;
 
 namespace Slutprojekt.States
 {
@@ -23,6 +22,11 @@ namespace Slutprojekt.States
     Vector2 mustafarFloorPos;
 
     Song AvO;
+
+    private List<Sprite> _sprites;
+
+    Texture2D Enemy;
+    public Rectangle enemyRect = new Rectangle(500, Resolution.Height/5, 45, 70);
     
     public MustafarState(Game1 game, GraphicsDevice graphicsDevice, ContentManager content) 
       : base(game, graphicsDevice, content)
@@ -34,8 +38,37 @@ namespace Slutprojekt.States
       mustafarFloor = _game.Content.Load<Texture2D>("Textures/Mustafar_Floor");
       mustafarFloorPos = new Vector2(0, Resolution.Height/3.5f);
 
-      AvO = _game.Content.Load<Song>("Audio/Naboo");
+      AvO = _game.Content.Load<Song>("Audio/Mustafar");
       MediaPlayer.Play(AvO);
+
+      Enemy = _game.Content.Load<Texture2D>("Enemy/Anakin");
+
+      var animations = new Dictionary<string, Animation>(){
+        { "PlayerF", new Animation(_game.Content.Load<Texture2D>("Player/ObiwanWalk"), 12) },
+        { "PlayerB", new Animation(_game.Content.Load<Texture2D>("Player/ObiwanRev"), 12) },
+        { "PlayerA", new Animation(_game.Content.Load<Texture2D>("Player/ObiwanAtt"), 3) },
+        { "PlayerAFK", new Animation(_game.Content.Load<Texture2D>("Player/ObiwanAFK"), 1) },
+      };
+
+      _sprites = new List<Sprite>(){
+        new Sprite(new Dictionary<string, Animation>(){
+          { "PlayerF", new Animation(_game.Content.Load<Texture2D>("Player/ObiwanWalk"), 12) },
+          { "PlayerB", new Animation(_game.Content.Load<Texture2D>("Player/ObiwanRev"), 12) },
+          { "PlayerA", new Animation(_game.Content.Load<Texture2D>("Player/ObiwanAtt"), 3) },
+          { "PlayerAFK", new Animation(_game.Content.Load<Texture2D>("Player/ObiwanAFK"), 1) },
+        })
+        {
+          Position = new Vector2(100,Resolution.Height/5),
+          Input = new Input()
+          {
+            Up = Keys.W,
+            Down = Keys.S,
+            Left = Keys.A,
+            Right = Keys.D,
+            Attack = Keys.Enter,
+          },
+        },
+      };
     }
 
     public override void Draw(GameTime gameTime, SpriteBatch spriteBatch)
@@ -62,6 +95,11 @@ namespace Slutprojekt.States
           spriteBatch.Draw(mustafarFloor, new Vector2((int)mustafarFloorPos.X + (i*mustafarFloor.Width), (int)mustafarFloorPos.Y), Color.White);
       }  
 
+      foreach (var sprite in _sprites)
+        sprite.Draw(spriteBatch);
+    
+      spriteBatch.Draw(Enemy, enemyRect, Color.White);
+
       spriteBatch.End();
     }
 
@@ -72,7 +110,8 @@ namespace Slutprojekt.States
 
     public override void Update(GameTime gameTime)
     {
-
+      foreach (var sprite in _sprites)
+        sprite.Update(gameTime, _sprites);
     }
   }
 }
