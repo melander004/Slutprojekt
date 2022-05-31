@@ -10,8 +10,8 @@ namespace Slutprojekt.States
 {
   public class MenuState : State 
   {
-
         Song THEME;  
+        
         private List<Component> _components;
 
         public MenuState(Game1 game, GraphicsDevice graphicsDevice, ContentManager content) 
