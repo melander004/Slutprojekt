@@ -45,18 +45,18 @@ namespace Slutprojekt.States
       Enemy = _game.Content.Load<Texture2D>("Enemy/darthmaulAFK");
 
       var animations = new Dictionary<string, Animation>(){
-        { "PlayerF", new Animation(_game.Content.Load<Texture2D>("Player/ObiwanWalk"), 12) },
-        { "PlayerB", new Animation(_game.Content.Load<Texture2D>("Player/ObiwanRev"), 12) },
-        { "PlayerA", new Animation(_game.Content.Load<Texture2D>("Player/ObiwanAtt"), 3) },
-        { "PlayerAFK", new Animation(_game.Content.Load<Texture2D>("Player/ObiwanAFK"), 1) },
+        { "PlayerRight", new Animation(_game.Content.Load<Texture2D>("Player/ObiwanWalk"), 12) },
+        { "PlayerLeft", new Animation(_game.Content.Load<Texture2D>("Player/ObiwanRev"), 12) },
+        { "PlayerAttack", new Animation(_game.Content.Load<Texture2D>("Player/ObiwanAtt"), 3) },
+        { "PlayerIdle", new Animation(_game.Content.Load<Texture2D>("Player/ObiwanAFK"), 1) },
       };
 
       _sprites = new List<Sprite>(){
         new Sprite(new Dictionary<string, Animation>(){
-          { "PlayerF", new Animation(_game.Content.Load<Texture2D>("Player/ObiwanWalk"), 12) },
-          { "PlayerB", new Animation(_game.Content.Load<Texture2D>("Player/ObiwanRev"), 12) },
-          { "PlayerA", new Animation(_game.Content.Load<Texture2D>("Player/ObiwanAtt"), 3) },
-          { "PlayerAFK", new Animation(_game.Content.Load<Texture2D>("Player/ObiwanAFK"), 1) },
+          { "PlayerRight", new Animation(_game.Content.Load<Texture2D>("Player/ObiwanWalk"), 12) },
+          { "PlayerLeft", new Animation(_game.Content.Load<Texture2D>("Player/ObiwanRev"), 12) },
+          { "PlayerAttack", new Animation(_game.Content.Load<Texture2D>("Player/ObiwanAtt"), 3) },
+          { "PlayerIdle", new Animation(_game.Content.Load<Texture2D>("Player/ObiwanAFK"), 1) },
         })
         {
           Position = new Vector2(100,Resolution.Height-110),
