@@ -86,17 +86,17 @@ namespace Slutprojekt.Sprites
         protected virtual void SetAnimations()
         {   
             if (Velocity.X > 0)
-                _animationManager.Play(_animations["PlayerF"]);
+                _animationManager.Play(_animations["PlayerRight"]);
         
             else if (Velocity.X < 0)
-                _animationManager.Play(_animations["PlayerB"]);
+                _animationManager.Play(_animations["PlayerLeft"]);
         
             else if(AnimationRuning && Keyboard.GetState().IsKeyDown(Keys.Enter) && !lastKey.IsKeyUp(Keys.Enter)){
-            _animationManager.Play(_animations["PlayerA"]);
+            _animationManager.Play(_animations["PlayerAttack"]);
             }
         
             else{
-                _animationManager.Play(_animations["PlayerAFK"]);
+                _animationManager.Play(_animations["PlayerIdle"]);
             } 
         }
 
